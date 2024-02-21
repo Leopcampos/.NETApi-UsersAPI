@@ -7,11 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\UsersAPI.Application\UsersAPI.Application.csproj" />
     <ProjectReference Include="..\UsersAPI.Domain\UsersAPI.Domain.csproj" />
+    <ProjectReference Include="..\UsersAPI.Infra.Data\UsersAPI.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>
