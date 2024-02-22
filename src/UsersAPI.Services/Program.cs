@@ -10,6 +10,7 @@ builder.Services.AddJwtBearer();
 builder.Services.AddCorsPolicy();
 builder.Services.AddDependencyInjection();
 builder.Services.AddAutoMapperConfig();
+builder.Services.AddDbContextConfig(builder.Configuration);
 
 var app = builder.Build();
 
