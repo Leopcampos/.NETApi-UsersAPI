@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersAPI.Infra.Data", "User
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersAPI.Tests", "UsersAPI.Tests\UsersAPI.Tests.csproj", "{F6C627E8-EFBC-4109-AEA4-5A9C80F9384B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAPI.Infra.IoC", "UsersAPI.Infra.IoC\UsersAPI.Infra.IoC.csproj", "{C0B05DED-EE2E-4A2B-8DF5-C86CF9F59B35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UsersAPI.Infra.IoC", "UsersAPI.Infra.IoC\UsersAPI.Infra.IoC.csproj", "{C0B05DED-EE2E-4A2B-8DF5-C86CF9F59B35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersAPI.Infra.Messages", "UsersAPI.Infra.Messages\UsersAPI.Infra.Messages.csproj", "{19489FE6-1ACB-4A57-B81D-36F1B2538B48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{C0B05DED-EE2E-4A2B-8DF5-C86CF9F59B35}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0B05DED-EE2E-4A2B-8DF5-C86CF9F59B35}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0B05DED-EE2E-4A2B-8DF5-C86CF9F59B35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19489FE6-1ACB-4A57-B81D-36F1B2538B48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19489FE6-1ACB-4A57-B81D-36F1B2538B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19489FE6-1ACB-4A57-B81D-36F1B2538B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19489FE6-1ACB-4A57-B81D-36F1B2538B48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -71,6 +77,7 @@ Global
 		{C67AB70B-4478-42B8-B06E-1DF4833F6447} = {58DDCB03-7E47-4450-8053-8D2E630B28CF}
 		{F6C627E8-EFBC-4109-AEA4-5A9C80F9384B} = {20519CC6-6038-403F-BD31-9DE3BA971638}
 		{C0B05DED-EE2E-4A2B-8DF5-C86CF9F59B35} = {58DDCB03-7E47-4450-8053-8D2E630B28CF}
+		{19489FE6-1ACB-4A57-B81D-36F1B2538B48} = {58DDCB03-7E47-4450-8053-8D2E630B28CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F893FCE6-DDD3-4BB7-9C57-A9B372894514}
