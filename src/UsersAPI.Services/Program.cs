@@ -24,3 +24,5 @@ app.UseAuthorization();
 app.UseCorsPolicy();
 app.MapControllers();
 app.Run();
+
+public partial class Program { }
