@@ -1,6 +1,7 @@
 ﻿using UsersAPI.Domain.Exceptions;
 using UsersAPI.Domain.Interfaces.Messages;
 using UsersAPI.Domain.Interfaces.Repositories;
+using UsersAPI.Domain.Interfaces.Security;
 using UsersAPI.Domain.Interfaces.Services;
 using UsersAPI.Domain.Models;
 using UsersAPI.Domain.ValueObjects;
@@ -11,11 +12,15 @@ public class UserDomainService : IUserDomainService
 {
     private readonly IUnitOfWork? _unitOfWork;
     private readonly IUserMessageProducer? _userMessageProducer;
+    private readonly ITokenService? _tokenService;
 
-    public UserDomainService(IUnitOfWork? unitOfWork, IUserMessageProducer? userMessageProducer)
+    public UserDomainService(IUnitOfWork? unitOfWork,
+        IUserMessageProducer? userMessageProducer,
+        ITokenService? tokenService)
     {
         _unitOfWork = unitOfWork;
         _userMessageProducer = userMessageProducer;
+        _tokenService = tokenService;
     }
 
     public void Add(User user)
@@ -49,22 +54,31 @@ public class UserDomainService : IUserDomainService
     }
 
     public User? Get(Guid id)
-    {
-        return _unitOfWork?.UserRepository.GetById(id);
-    }
+        => _unitOfWork?.UserRepository.GetById(id);
 
     public User? Get(string email)
-    {
-        return _unitOfWork?.UserRepository.Get(u => u.Email.Equals(email));
-    }
+        => _unitOfWork?.UserRepository.Get(u => u.Email.Equals(email));
 
     public User? Get(string email, string password)
+        => _unitOfWork?.UserRepository.Get(u => u.Email.Equals(email) && u.Password.Equals(password));
+
+    public string Authenticate(string email, string password)
     {
-        return _unitOfWork?.UserRepository.Get(u => u.Email.Equals(email) && u.Password.Equals(password));
+        var user = Get(email, password);
+        if (user == null)
+            throw new AccessDeniedException();
+
+        var userAuth = new UserAuthVO
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email,
+            Role = "USER_ROLE", //perfil do usuário
+            SignedAt = DateTime.Now,
+        };
+        return _tokenService?.CreateToken(userAuth);
     }
 
     public void Dispose()
-    {
-        _unitOfWork?.Dispose();
-    }
+        => _unitOfWork?.Dispose();
 }
